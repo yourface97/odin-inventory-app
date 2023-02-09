@@ -5,7 +5,7 @@ const categorySchema = new mongoose.Schema({
     description: String
 });
 
-categorySchema.virtual('url').get(() => {
+categorySchema.virtual('url').get(function(){
     return `/categories/${this._id}`
 });
 

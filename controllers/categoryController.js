@@ -3,14 +3,14 @@ const Item = require('../models/itemModel');
 
 const get_Categories = async (req, res) => {
     const categories = (await Category.find({})).map(cat => {
-        return { name: cat.name, description: cat.description, url: `/categories/${cat._id}` };
+        return { name: cat.name, description: cat.description, url: cat.url };
     });
     res.render('../views/categories', { cats: categories });
 };
 
 const get_ItemsByCat = async (req, res) => {
     const items = (await Item.find({category: req.params.id})).map(item => {
-        return { name: item.name, url: `/items/${item._id}` };
+        return { name: item.name, url: item.url };
     });
     console.log(items);
     res.render('../views/items', { items: items });

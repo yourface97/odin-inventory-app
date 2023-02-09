@@ -4,7 +4,7 @@ const get_Items = async (req, res) => {
     const items = (await Item.find({})).map(item => {
         return {
             name: item.name,
-            url: `/items/${item._id}`
+            url: item.url
         }
     });
     console.log(items);

@@ -7,7 +7,7 @@ const itemSchema = new mongoose.Schema({
     stock: Number,
 });
 
-itemSchema.virtual('url').get(() => {
+itemSchema.virtual('url').get(function(){
     return `/items/${this._id}`;
 });
 
