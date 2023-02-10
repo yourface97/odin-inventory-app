@@ -1,0 +1,22 @@
+<form method="POST" action="/additem">
+    <label for="name">Item Name:</label>
+    <input id="name" name="name" type="text">
+    <div>
+        <label for="description">Description:</label>
+        <input id="description" name="description" type="text">
+    </div>
+    <div>
+    <label for="category">Category:</label>
+        <select id="category" name="category">
+            <option value="" selected></option>
+            {{#each cats}}
+                <option value={{this.name}}>{{this.name}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <div>
+        <label for="stock">Inventory:</label>
+        <input id="stock" name="stock" type="number">
+    </div>
+    <input type="submit" value="Add Item">
+</form>

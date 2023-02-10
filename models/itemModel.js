@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 const itemSchema = new mongoose.Schema({
-    name: String,
-    description: String,
+    name: { type: String, required: true },
+    description: { type: String, required: true },
     category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' },
-    stock: Number,
+    stock: { type: Number, required: true }
 });
 
 itemSchema.virtual('url').get(function(){

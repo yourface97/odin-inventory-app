@@ -5,6 +5,7 @@ const path = require('path');
 const { db_Conn } = require('./config/db');
 const itemRoutes = require('./routes/itemRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
+const additemRoutes = require('./routes/additemRoutes');
 
 
 const PORT = process.env.PORT;
@@ -24,6 +25,7 @@ app.use(express.urlencoded({ extended: false }))
 
 app.use('/items', itemRoutes);
 app.use('/categories', categoryRoutes);
+app.use('/additem', additemRoutes);
 
 app.get('/', (req, res) => {
     res.render('home');
